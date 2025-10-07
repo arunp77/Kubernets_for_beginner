@@ -30,4 +30,10 @@ If every shop tried to do this alone, things would get chaotic—orders lost, sl
 
 Kubernetes **centralizes the control**, making sure your entire pizza chain runs like a well-oiled machine, even if one shop faces trouble.
 
+**Reference:** 
+
+- [Kubernet docs](https://kubernetes.io/docs/home/)
+
+---
+
 Go to overview of containers [01_overview.md](#01_overview.md)
