@@ -1,6 +1,3 @@
-Awesome! Now that you get what containers are, let’s **create and run a container** step-by-step using Docker, which is the most popular tool for working with containers.
-
----
 
 ### Step 1: Install Docker
 
