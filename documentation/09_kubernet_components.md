@@ -1,5 +1,7 @@
 # **main components of Kubernetes** 
 
+A Kubernetes cluster consists of a control plane and one or more worker nodes.
+
 ## 🧠 1. **Control Plane Components**
 
 > These are the brains of the Kubernetes cluster. They manage the cluster, decide what runs where, and handle overall orchestration.
@@ -42,19 +44,9 @@
 
 ## 🔄 Summary Diagram (Text-Based)
 
-```
-                [ Control Plane ]
-+---------------------------------------------------------+
-|  kube-apiserver   etcd   scheduler   controllers        |
-+---------------------------------------------------------+
+![CLUSTER IMAGE](images/kubernet_cluster.png)
 
-                [ Worker Nodes (N) ]
-+-----------------------------------------+
-|  kubelet   |  kube-proxy  |  containerd |
-+-----------------------------------------+
-         Pod 1   Pod 2   Pod 3   ...
-```
-
+**Image reference:** [https://kubernetes.io/docs/concepts/overview/components/](https://kubernetes.io/docs/concepts/overview/components/)
 ---
 
 ## 🧠 TL;DR Summary
@@ -67,4 +59,5 @@
 
 ---
 
-Would you like a **visual diagram**, or should we go into **how these components interact during app deployment**?
+## Flexibility in Architecture 
+Kubernetes allows for flexibility in how these components are deployed and managed. The architecture can be adapted to various needs, from small development environments to large-scale production deployments.

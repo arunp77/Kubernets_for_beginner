@@ -1,4 +1,5 @@
 # Overview
+
 Kubernetes (often called K8s) is an open-source platform designed to automate deploying, scaling, and managing containerized applications. Containers are lightweight, portable units of software (like Docker containers), and Kubernetes helps you run those containers across a cluster of machines, handling the heavy lifting like:
 
 - Starting and stopping containers
