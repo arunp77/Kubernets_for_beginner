@@ -2,7 +2,7 @@
 
 ## Lesson Objectives
 
-By the end of this chapter you will be able to:
+By the end of this chapter we will be able to:
 
 - Name every control-plane and node component and state, in one sentence
   each, what problem it solves.
@@ -16,7 +16,7 @@ By the end of this chapter you will be able to:
 
 ## Theory
 
-In Lesson 1 you saw the shape of the idea: a **control plane** holds
+In Lesson 1 we saw the shape of the idea: a **control plane** holds
 desired state and continuously reconciles it against the real cluster.
 This chapter opens that box. Where Docker Engine is a single daemon
 (`dockerd`) that does everything — API, image management, container
@@ -32,7 +32,7 @@ system. Each piece can fail, restart, scale, or be replaced independently.
   cluster state — `kubectl`, the scheduler, every controller, kubelets on
   every node — goes through this one HTTP(S) REST API. It validates
   requests, enforces auth/RBAC, and is the only component allowed to talk
-  to etcd. Stateless by design — you can (and production clusters do) run
+  to etcd. Stateless by design — we can (and production clusters do) run
   several replicas behind a load balancer.
 - **etcd** — a distributed, strongly-consistent key-value store (uses the
   Raft consensus algorithm) holding the entire state of the cluster: every
@@ -50,7 +50,7 @@ system. Each piece can fail, restart, scale, or be replaced independently.
   controller, ReplicaSet controller, and many more). Each runs its own
   independent reconciliation loop: watch the API server for objects it
   owns, compare desired vs. observed, act.
-- **cloud-controller-manager** — the cloud-specific glue: when you create a
+- **cloud-controller-manager** — the cloud-specific glue: when we create a
   `LoadBalancer`-type Service on EKS, *this* is what actually calls the AWS
   API to provision a real ELB. Keeps cloud-vendor code out of core
   Kubernetes.
@@ -140,7 +140,7 @@ system falling over.
 | Process model | One daemon (`dockerd`) does everything | Split into ~7 single-purpose processes |
 | Source of truth | In-memory + on-disk state on that one host | etcd, a replicated distributed database |
 | API | Docker Engine API, one host | kube-apiserver, one cluster-wide endpoint, HA-able |
-| Scheduling | None — you pick the host by running the command there | kube-scheduler picks a node automatically from the whole cluster |
+| Scheduling | None — we pick the host by running the command there | kube-scheduler picks a node automatically from the whole cluster |
 | Networking | Docker's bridge/overlay networks, per host | kube-proxy + a cluster networking plugin (CNI) spanning all nodes |
 | Failure blast radius | Daemon down = host's containers unmanaged | Each component can fail/restart independently; API server is typically run with 3 replicas for HA |
 
@@ -183,11 +183,11 @@ Write down, right now, your answers to:
    what happens to already-running containers? What happens the next time
    any of them crashes?
 2. If the `kube-scheduler` process is killed and doesn't restart, what
-   happens to Pods that are already running? What happens if you create a
+   happens to Pods that are already running? What happens if we create a
    *new* Deployment while it's down?
 3. If a Node's `kubelet` process dies but the Node itself and its
    containers keep running, how would the rest of the cluster find out
-   something is wrong, and how long do you think that takes?
+   something is wrong, and how long do we think that takes?
 
 Keep these answers — in Lesson 3, once `kind` is running, we'll actually
 `docker exec` into the control-plane container, kill some of these
@@ -231,7 +231,7 @@ exactly as described above; that mechanism is what this chapter explains.
   single worst-case disaster in a cluster.
 - Run the **API server** behind a load balancer with multiple replicas;
   it's stateless, so this is cheap redundancy to buy.
-- Treat control-plane components as infrastructure you either operate
+- Treat control-plane components as infrastructure we either operate
   very carefully (self-managed clusters) or hand entirely to a cloud
   provider (Lesson 31) — very few teams should be hand-rolling etcd
   operations themselves.
