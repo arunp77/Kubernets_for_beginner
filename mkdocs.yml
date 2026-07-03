@@ -1,0 +1,90 @@
+site_name: Kubernetes for Beginners
+site_description: A hands-on Docker + Kubernetes masterclass for developers
+site_url: https://arunp77.github.io/Kubernets_for_beginner/
+repo_url: https://github.com/arunp77/Kubernets_for_beginner
+repo_name: arunp77/Kubernets_for_beginner
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Docker Basics:
+      - Overview: docker_basics/00_kubernet_in_simple_words.md
+      - Kubernetes Overview: docker_basics/01_kubernets_overview.md
+      - Containers: docker_basics/03_containers.md
+      - Create Containers: docker_basics/04_create_containers.md
+      - Build & Push a Container Image: docker_basics/05_example_container_creation.md
+      - Docker + Kubernetes Together: docker_basics/06_how_kubernet_docker_work_together.md
+      - Deploy Docker Images to Kubernetes: docker_basics/07_deploy_docker_images_to_kubernets.md
+      - Kubernetes Historical Context: "docker_basics/08_kubernet_historical context.md"
+      - Kubernetes Components: docker_basics/09_kubernet_components.md
+      - Kubernetes API: docker_basics/10_kubernets_API.md
+  - Kubernetes Basics:
+      - 1. Why Kubernetes?: kubernetes_basics/01-why-kubernetes.md
+      - 2. Kubernetes Architecture: kubernetes_basics/02-kubernetes-architecture.md
+      - 3. Installing a Local Cluster (Kind): kubernetes_basics/03-installing-local-cluster-kind.md
+      - 4. kubectl Deep Dive: kubernetes_basics/04-kubectl-deep-dive.md
+      - 5. Pods: kubernetes_basics/05-pods.md
+      - 6. YAML for Kubernetes: kubernetes_basics/06-yaml-for-kubernetes.md
+      - 7. ReplicaSets: kubernetes_basics/07-replicasets.md
+      - 8. Deployments: kubernetes_basics/08-deployments.md
+      - 9. Services: kubernetes_basics/09-services.md
+      - 10. Labels and Selectors: kubernetes_basics/10-labels-and-selectors.md
+      - 11. Namespaces: kubernetes_basics/11-namespaces.md
+      - 12. ConfigMaps: kubernetes_basics/12-configmaps.md
+      - 13. Secrets: kubernetes_basics/13-secrets.md
+      - 14. Persistent Volumes: kubernetes_basics/14-persistent-volumes.md
+      - 15. Storage Classes: kubernetes_basics/15-storage-classes.md
+      - 16. Ingress: kubernetes_basics/16-ingress.md
+      - 17. Health Checks (Probes): kubernetes_basics/17-health-checks-probes.md
+      - 18. Jobs: kubernetes_basics/18-jobs.md
+      - 19. CronJobs: kubernetes_basics/19-cronjobs.md
+      - 20. DaemonSets: kubernetes_basics/20-daemonsets.md
+      - 21. StatefulSets: kubernetes_basics/21-statefulsets.md
+      - 22. Resource Requests and Limits: kubernetes_basics/22-resource-requests-and-limits.md
+      - 23. Horizontal Pod Autoscaler: kubernetes_basics/23-horizontal-pod-autoscaler.md
+      - 24. RBAC: kubernetes_basics/24-rbac.md
+      - 25. Network Policies: kubernetes_basics/25-network-policies.md
+      - 26. Helm: kubernetes_basics/26-helm.md
+      - 27. Monitoring (Prometheus & Grafana): kubernetes_basics/27-monitoring-prometheus-grafana.md
+      - 28. Logging: kubernetes_basics/28-logging.md
+      - 29. CI/CD with Kubernetes: kubernetes_basics/29-cicd-with-kubernetes.md
+      - 30. Production Best Practices: kubernetes_basics/30-production-best-practices.md
+      - 31. Managed Kubernetes (EKS/GKE/AKS): kubernetes_basics/31-managed-kubernetes.md

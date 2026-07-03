@@ -24,7 +24,7 @@ machine**: `docker run --restart=always`, maybe `docker compose up -d` with
 a `deploy.replicas` block, maybe a systemd unit wrapping `docker run`. That
 covers a huge fraction of side-project and small-app deployments. 
 
-![docker and k8s](../images/docker_kubernetes.png)
+![docker and k8s](images/docker_kubernetes.png)
 
 Kubernetes exists because production systems eventually violate the
 assumptions that make the Docker model work:
@@ -143,43 +143,7 @@ Single-host Docker vs. what Kubernetes coordinates. We'll go one level
 deeper into the control plane's internals in Lesson 2 — this is the
 30,000-foot picture, just to place the pieces.
 
-```
- DOCKER WORLD (what you already run)
- ┌─────────────────────────────────────────┐
- │                Host Machine               │
- │  ┌──────────┐ ┌──────────┐ ┌──────────┐ │
- │  │Container │ │Container │ │Container │ │
- │  │  web-1   │ │  web-2   │ │  redis   │ │
- │  └──────────┘ └──────────┘ └──────────┘ │
- │         Docker Engine (containerd)        │
- └─────────────────────────────────────────┘
-   You are the orchestrator: you decide
-   what runs, you notice what died, you
-   redeploy manually or via ad-hoc scripts.
-
-
- KUBERNETES WORLD (what this course teaches)
-                     ┌───────────────────────────┐
-                     │        CONTROL PLANE        │
-                     │  (the "brain" — Lesson 2)   │
-                     │  API Server · Scheduler ·   │
-                     │  Controller Manager · etcd  │
-                     └──────────────┬──────────────┘
-                                    │  "make reality match
-                                    │   this desired state"
-        ┌───────────────────────────┼───────────────────────────┐
-        │                           │                           │
- ┌─────────────┐           ┌─────────────┐            ┌─────────────┐
- │   Node 1      │           │   Node 2      │            │   Node 3      │
- │ ┌─────────┐ │           │ ┌─────────┐ │            │ ┌─────────┐ │
- │ │ web-1     │ │           │ │ web-2     │ │            │ │ redis     │ │
- │ └─────────┘ │           │ └─────────┘ │            │ └─────────┘ │
- │  containerd   │           │  containerd   │            │  containerd   │
- └─────────────┘           └─────────────┘            └─────────────┘
-   Each box is a real machine (VM or bare metal). If Node 2 dies,
-   the control plane notices web-2 is gone and reschedules it onto
-   Node 1 or Node 3 automatically — you never SSH anywhere.
-```
+![docker and k8s](images/architecture_k8s.png)
 
 ---
 
