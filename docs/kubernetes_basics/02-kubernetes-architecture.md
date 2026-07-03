@@ -101,35 +101,7 @@ system falling over.
 
 ## Architecture Diagram
 
-```
-                        ┌───────────────────────────────────────────┐
-                        │              CONTROL PLANE                  │
-                        │                                             │
-   kubectl / CI ───────▶│   kube-apiserver  ◀────────────────────┐   │
-                        │        │   ▲                            │   │
-                        │        ▼   │ (only writer/reader)       │   │
-                        │      etcd                                │   │
-                        │        (cluster state, Raft consensus)   │   │
-                        │                                          │   │
-                        │   kube-scheduler ───────────────────────┘   │
-                        │   kube-controller-manager ───────────────────┘
-                        │   cloud-controller-manager
-                        └──────────────────┬──────────────────────────┘
-                                           │ watches / patches via API server
-              ┌────────────────────────────┼────────────────────────────┐
-              │                            │                            │
-        ┌───────────┐               ┌───────────┐                ┌───────────┐
-        │   Node 1    │               │   Node 2    │                │   Node 3    │
-        │ ┌───────┐ │               │ ┌───────┐ │                │ ┌───────┐ │
-        │ │kubelet  │ │               │ │kubelet  │ │                │ │kubelet  │ │
-        │ └───────┘ │               │ └───────┘ │                │ └───────┘ │
-        │ ┌───────┐ │               │ ┌───────┐ │                │ ┌───────┐ │
-        │ │kube-proxy│               │ │kube-proxy│               │ │kube-proxy│
-        │ └───────┘ │               │ └───────┘ │                │ └───────┘ │
-        │ containerd  │               │ containerd  │                │ containerd  │
-        │ [Pod][Pod]  │               │ [Pod][Pod]  │                │ [Pod][Pod]  │
-        └───────────┘               └───────────┘                └───────────┘
-```
+![k8s_architecture](images/k8s_control_panel.png)
 
 ---
 
