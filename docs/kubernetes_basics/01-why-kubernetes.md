@@ -201,6 +201,16 @@ naming them now so the vocabulary isn't new when we get there.
 
 ---
 
+> - Kubernetes uses a **control plane** made up of several components working together.
+> - The **API Server** is the entry point — all commands and resources flow through it.
+> - **etcd** is a distributed key-value store that holds the cluster's state. It is the brain of the cluster and primary database for cluster state
+> - **Controllers** (Deployment controller, ReplicaSet controller, etc.) watch the API
+>   Server and work to make the cluster's actual state match the desired state.
+> - The **Scheduler** decides which node each Pod should run on.
+>   (This is a simplified overview — we'll deep-dive in Lesson 2.)
+
+---
+
 ## Hands-on Lab
 
 You won't touch Kubernetes yet — that's Lesson 3 onward. Instead, this lab
