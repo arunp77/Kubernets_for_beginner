@@ -55,6 +55,8 @@ system. Each piece can fail, restart, scale, or be replaced independently.
   API to provision a real ELB. Keeps cloud-vendor code out of core
   Kubernetes.
 
+![k8s_architecture](images/k8s_control_panel.png)
+
 ### Node components (the "muscle")
 
 - **kubelet** — an agent running on every node. It watches the API server
@@ -96,12 +98,6 @@ Nobody in this chain talks to anyone else directly except through the API
 server — this "hub and spoke, watch-and-react" design is why components
 can be restarted, upgraded, or replaced independently without the whole
 system falling over.
-
----
-
-## Architecture Diagram
-
-![k8s_architecture](images/k8s_control_panel.png)
 
 ---
 
